@@ -1,0 +1,1 @@
+BlockCHain Voting is a decentralized solution to the current election system of the United states. 

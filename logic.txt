@@ -1,0 +1,73 @@
+Create a dapp for voting where all of the votes and candidate registration happens on chain. 
+Allow anyone to start an election with a registration period, voting period, and ending time.
+The old elections will move to a read only function after the voting period ends.  
+Allow creater to add voting topics(similar to how US votes on multiple props during election cycles) 
+Allow anyone to sign up as a candidate during the registration period
+allow anyone to vote once during the voting period.
+Allow multiple entities to edit a section of the smart contract, i.e California can edit their voting section
+Create a front end where voters can see the results and know how long is left in the election.
+Voting Dapp will address voting within the US. allowing users to vote depending on State they're
+
+
+
+
+Ideas for implementation.
+
+how to prevent voting pages from being altered after they're posted on the web and on chain
+    - check each voting page as a hash of (entire text of the voting page + the url of the page)
+        - will have each voting page on the website as a hash of the text i.e: 
+                BlockchainVoting/voting/1f67ad5fd8afeccbaa1d9001ac8ea9e485bbf4ab3ae666ab614f91f4ff2f4a3a
+        - will then hash the entire url, then the entire page of text and check its value against the true hash on the blockchain
+        - if true allow vote to go through, if false reject vote and tell user you're not on the right page.
+
+
+Allow multiple wallets to add voting pages to the contract
+    - there will be a main owner
+    - owner will give permissions to different Addresses
+    - there will be varying levels of access depending on need (might not implement)
+    - allow vetted addresses to add voting pages (will allow States to upload options for state elections)
+
+
+
+
+how voting will be implemented on the blockchain
+    - each unique address will be added to a mapping then a struct which will chain to the next voting page
+
+    mapp(address => struct)
+
+        - will create multiple structs depending on the number of options.
+        struct {
+            uint256 pageHash
+            Bool option1;
+            Bool option2;
+            Bool option3;
+            Bool lastpage;
+            map(uint256 => same struct); 
+        }
+
+
+
+
+
+must have
+
+ - before beginning a vote a popup will show and tell the user to chec
+
+ only the _owner can set currentElection to the latest. 
+
+
+
+
+
+
+external contracts that will be use
+    - Ownable.sol
+    
+
+
+
+
+
+
+
+
