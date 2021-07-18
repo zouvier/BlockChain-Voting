@@ -1,1 +1,1 @@
-BlockChain Voting is a decentralized solution to the current election system of the United states. 
+BlockChain Voting is a decentralized solution to voting with all the users and their votes available for everyone to see 
