@@ -4,52 +4,61 @@ pragma solidity ^0.8.0;
 
 import '/Users/zouvier/projects/openzeppelin-contracts/contracts/access/Ownable.sol';
 
-contract votingChain {
+// added Ownable.sol 
+contract votingChain is Ownable {
 
 
+uint _voterNumber;
+constructor(){
+_voterNumber = 0;
+}
+
+// variable for voter address
 address Voter = msg.sender;
-uint256 PageHash;
 
 struct VotingPage2options {
-    uint256 currentPageHash;
-    uint256 nextPageHash;
     bool VoteCasted;
     bool option1;
     bool option2;
-    bool isLastPage;
-    mapping(uint256 => VotingPage2options) nextpage;
+    bool HasVoted;
+    uint VoterNumber;
 }
 
 
-// emit the page number, the hash and the address of the 
-event finishedVoting (
-
-);
+// emit the address of the voter and their options
+event finishedVoting (address indexed _user, bool _option1, bool _option2 , uint indexed Voter_Number);
 
 
-// will check to see if the user is on the last page and then emit the first page hash 
-modifier checkIfLastPage {
-require(StartingPoint[msg.sender].isLastPage == false);
-emit finishedVoting();
-    _;
+// will not allow voter to submit if they have already voted
+modifier Voted {
+    StartingPoint[Voter].HasVoted == false;
+_;
 }
 
+// mapping of the address of the voter to the struct for holding the votes
 mapping(address => VotingPage2options) StartingPoint;
 
-function voting(address _currentVoter, uint256 _pageHash, uint256 _nextPageHash, bool _option1, bool _option2, bool _lastpage) public checkIfLastPage {
-StartingPoint[_currentVoter].currentPageHash = _pageHash;
-StartingPoint[_currentVoter].nextPageHash = _nextPageHash;
+
+function voting( bool _option1, bool _option2, bool _votecasted) public Voted {
 
 if ((_option1 == true) || (_option1 == false)){
-StartingPoint[_currentVoter].option1 = _option1;
+StartingPoint[Voter].option1 = _option1;
 }
 
 if ((_option2 == true) || (_option2 == false)){
-StartingPoint[_currentVoter].option2 = _option2;
+StartingPoint[Voter].option2 = _option2;
 }
 
-if (_lastpage == true) {
-    StartingPoint[_currentVoter].isLastPage == _lastpage;
+
+// sets Has voted to true, then increases the VoterNumber and assigns it the the Voter. 
+// at the end an emit tells us who the Voter is (address), the options they chose, and their voter Number 
+// this will allow for easy to gather data  
+if (_votecasted == true) {
+    StartingPoint[Voter].HasVoted == _votecasted;
+    _voterNumber ++;
+    StartingPoint[Voter].VoterNumber = _voterNumber;
+    emit finishedVoting(Voter, StartingPoint[Voter].option1,StartingPoint[Voter].option2, _voterNumber );
+
 }
 
 }
