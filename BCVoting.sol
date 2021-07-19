@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 
-import '/Users/zouvier/projects/openzeppelin-contracts/contracts/access/Ownable.sol';
+import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol';
 
 // added Ownable.sol 
 contract votingChain is Ownable {
@@ -31,7 +31,8 @@ event finishedVoting (address indexed _user, bool _option1, bool _option2 , uint
 
 // will not allow voter to submit if they have already voted
 modifier Voted {
-    StartingPoint[Voter].HasVoted == false;
+    Voter = msg.sender;
+    require(StartingPoint[Voter].HasVoted == false, "You have already Voted!");
 _;
 }
 
@@ -52,12 +53,14 @@ StartingPoint[Voter].option2 = _option2;
 
 // sets Has voted to true, then increases the VoterNumber and assigns it the the Voter. 
 // at the end an emit tells us who the Voter is (address), the options they chose, and their voter Number 
-// this will allow for easy to gather data  
+// this will allow for easy to gather data
 if (_votecasted == true) {
-    StartingPoint[Voter].HasVoted == _votecasted;
+
+    StartingPoint[Voter].HasVoted = _votecasted;
     _voterNumber ++;
     StartingPoint[Voter].VoterNumber = _voterNumber;
     emit finishedVoting(Voter, StartingPoint[Voter].option1,StartingPoint[Voter].option2, _voterNumber );
+
 
 }
 
