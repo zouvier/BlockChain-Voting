@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 
-import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol';
+import '/Users/zouvier/projects/openzeppelin-contracts/contracts/access/Ownable.sol';
 
 // added Ownable.sol 
 contract votingChain is Ownable {
