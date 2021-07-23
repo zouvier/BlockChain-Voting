@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
+//TODO: need to improve comments
+
 
 import '/Users/zouvier/projects/openzeppelin-contracts/contracts/access/Ownable.sol';
 
@@ -17,6 +19,7 @@ _voterNumber = 0;
 address Voter = msg.sender;
 
 struct VotingPage2options {
+    // vote has been 
     bool VoteCasted;
     bool option1;
     bool option2;
