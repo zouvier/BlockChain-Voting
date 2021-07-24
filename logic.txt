@@ -9,7 +9,7 @@ Create a front end where voters can see the results and know how long is left in
 Voting Dapp will address voting within the US. allowing users to vote depending on State they're
 
 
-
+complete: Made first iteration of the contract. simple and works, will update and add more features as time progresses.
 
 Ideas for implementation.
 
