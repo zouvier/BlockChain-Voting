@@ -1,0 +1,35 @@
+INFO:Detectors:
+votingChain.voting(bool,bool,bool) (BCVoting.sol#46-70) compares to a boolean constant:
+	-_votecasted == true (BCVoting.sol#60)
+votingChain.voting(bool,bool,bool) (BCVoting.sol#46-70) compares to a boolean constant:
+	-(_option2 == true) || (_option2 == false) (BCVoting.sol#52)
+votingChain.voting(bool,bool,bool) (BCVoting.sol#46-70) compares to a boolean constant:
+	-(_option1 == true) || (_option1 == false) (BCVoting.sol#48)
+votingChain.Voted() (BCVoting.sol#36-40) compares to a boolean constant:
+	-require(bool,string)(StartingPoint[Voter].HasVoted == false,You have already Voted!) (BCVoting.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#boolean-equality
+INFO:Detectors:
+Pragma version^0.8.0 (../openzeppelin-contracts/contracts/access/Ownable.sol#3) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6
+Pragma version^0.8.0 (../openzeppelin-contracts/contracts/utils/Context.sol#3) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6
+Pragma version^0.8.0 (BCVoting.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.6.12/0.7.6
+solc-0.8.6 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Contract votingChain (BCVoting.sol#10-72) is not in CapWords
+Event votingChainfinishedVoting(address,bool,bool,uint256) (BCVoting.sol#32) is not in CapWords
+Parameter votingChain.voting(bool,bool,bool)._option1 (BCVoting.sol#46) is not in mixedCase
+Parameter votingChain.voting(bool,bool,bool)._option2 (BCVoting.sol#46) is not in mixedCase
+Parameter votingChain.voting(bool,bool,bool)._votecasted (BCVoting.sol#46) is not in mixedCase
+Variable votingChain._voterNumber (BCVoting.sol#13) is not in mixedCase
+Variable votingChain.Voter (BCVoting.sol#19) is not in mixedCase
+Variable votingChain.StartingPoint (BCVoting.sol#43) is not in mixedCase
+Modifier votingChain.Voted() (BCVoting.sol#36-40) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+renounceOwnership() should be declared external:
+	- Ownable.renounceOwnership() (../openzeppelin-contracts/contracts/access/Ownable.sol#53-55)
+transferOwnership(address) should be declared external:
+	- Ownable.transferOwnership(address) (../openzeppelin-contracts/contracts/access/Ownable.sol#61-64)
+voting(bool,bool,bool) should be declared external:
+	- votingChain.voting(bool,bool,bool) (BCVoting.sol#46-70)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
