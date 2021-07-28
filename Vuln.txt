@@ -1,7 +1,7 @@
 Decision on 7-26-2021:  
 - Will continue to use solidity 0.8.0
 - Will ignore information issues
-
+- Will update with better comments
 
 
 Summary: 
