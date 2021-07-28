@@ -1,1 +1,1 @@
-BlockChain Voting is a decentralized solution to voting with all the users and their votes available for everyone to see 
+BlockChain Voting is a decentralized solution to voting 
