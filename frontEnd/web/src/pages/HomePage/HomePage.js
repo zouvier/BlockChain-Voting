@@ -1,4 +1,4 @@
-import { Link, routes } from '@redwoodjs/router'
+//import { Link, routes } from '@redwoodjs/router'
 
 const HomePage = () => {
   return (
@@ -8,8 +8,7 @@ const HomePage = () => {
         Find me in <code>./web/src/pages/HomePage/HomePage.js</code>
       </p>
       <p>
-        My default route is named <code>home</code>, link to me with `
-        <Link to={routes.home()}>Home</Link>`
+        My default route is named <code>home</code>
       </p>
       <p>
         Test page that will be used for the BlockChain Voting Dapp!!
