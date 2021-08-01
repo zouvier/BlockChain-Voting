@@ -1,18 +1,18 @@
+// web/src/components/BlogPost/BlogPost.js
+
 import { Link, routes } from '@redwoodjs/router'
 
-const BlogPostPage = () => {
+const BlogPost = ({ post }) => {
   return (
-    <>
-      <h1>BlogPostPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/BlogPostPage/BlogPostPage.js</code>
-      </p>
-      <p>
-        My default route is named <code>blogPost</code>, link to me with `
-        <Link to={routes.blogPost()}>BlogPost</Link>`
-      </p>
-    </>
+    <article>
+      <header>
+        <h2>
+          <Link to={routes.blogPost({ id: post.id })}>{post.title}</Link>
+        </h2>
+      </header>
+      <div>{post.body}</div>
+    </article>
   )
 }
 
-export default BlogPostPage
+export default BlogPost

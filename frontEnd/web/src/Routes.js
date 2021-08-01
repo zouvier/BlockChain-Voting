@@ -14,7 +14,6 @@ import BlockchainvotingLayout from 'src/layouts/BlockchainvotingLayout/'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/blog-post" page={BlogPostPage} name="blogPost" />
       <Set wrap={PostsLayout}>
         <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
         <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
@@ -24,7 +23,7 @@ const Routes = () => {
       <Set wrap={BlockchainvotingLayout}>
       <Route path="/about" page={AboutPage} name="about" />
       <Route path="/" page={HomePage} name="home" />
-      <Route path="/blog-post/{id}" page={BlogPostPage} name="blogPost" />
+      <Route path="/blog-post/{id:Int}" page={BlogPostPage} name="blogPost" />
       <Route notfound page={NotFoundPage} />
       </Set>
     </Router>

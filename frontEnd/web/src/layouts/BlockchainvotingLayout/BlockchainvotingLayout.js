@@ -7,10 +7,13 @@ const BlockchainvotingLayout = ({ children }) => {
       <nav>
         <ul>
           <li>
-            <Link to={routes.about()}>About</Link>
+            <Link to={routes.about()}>About</Link> 
           </li>
           <li>
-            <Link to={routes.home()}>Home</Link>
+          <Link to={routes.blogPost()}>Blog post</Link>
+          </li>
+          <li>
+          <Link to={routes.home()}>Home</Link>
           </li>
         </ul>
       </nav>
